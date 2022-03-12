@@ -24,6 +24,9 @@ const saludar = () =>{
 // Forma 4 de usar la funcion flecha cuando es una sola linea.
 const saludar1 =()=> 'Saludos desde funcion flecha 4';
 
+// Co
+
+
 miFuncion();
 miFuncionFlecha();
 miFuncionFlecha1();
