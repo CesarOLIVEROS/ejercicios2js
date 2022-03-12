@@ -3,7 +3,10 @@
 
 // Encerramos el error en el bloque diciendo intente pero si no puede catchee el error
 try{
-    x = 10;
+    let x = 10;
+
+    // se usa la clausula throw para manejar nuestros propios errores
+    throw 'Mi error';
     
 }
 catch(error ){
