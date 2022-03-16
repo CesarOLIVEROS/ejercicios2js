@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo DOM y JS</title>
+    <style>
+        .azul{
+            color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="cabecero">Este es el titulo</h1>
+    <p id="parrafo" class="azul">Saludos!</p>
+<p id="parrafo2">otro parrafo</p>
+
+<script> // los escript siempre hay que ponerlos despues del elemento al que queremos acceder.
+    let cabecero = document.getElementById('cabecero');
+    console.log('valor cabecero ' + cabecero);
+    let parrafo = document.getElementById('parrafo');
+    // podemos usar template literal para acceder a la variable y traemos el valor con el .innerHTML
+    console.log(`El valor del parrafo ${parrafo.innerHTML}`);
+    // Seteamos la informacion accediendo con el id y la funcion .innerHTML y le asignamos el nuevo valor.
+    // Solo se cambia el valor en la parte visual debido a que la instruccion solo se coloca despues de la declaracion del objeto
+    parrafo.innerHTML = 'Nuevo valor del parrafo';
+    //  Para modificar el valor no debe tener la funcion de innerhtml en el mismo renglon donde se declaro la variable u objeto
+    cabecero.innerHTML = 'Nuevo titulo modificado con innerHTML';
+    console.log('saludos desde javascript');
+    // podemos recuperar el parrafo por otra forma usandao el nombre de la etiqueta del elemento que queremos.
+
+    let parrafos = document.getElementsByTagName('p');
+    console.log(`No. parrafos ${parrafos.length}`);
+    // iteramos el objeto parrafos para ir imprimiendo luego template literal y con inner accedemos al valos de cada objeto encontrado en el arreglo.
+    for(let i =0; i<parrafos.length; i++){
+        console.log(`El indice: ${i} - ${parrafos[i].innerHTML}`);
+    }
+    // con este codigo se recuperan todos los elementos que tienen este estilo aplicado dentro del DOM.
+    let colorParrafos = document.getElementsByClassName('azul');
+    console.log(`El numero de elementos con esta clas son: ${colorParrafos.length}`);
+    for (let i = 0; i<colorParrafos.length; i++){
+        console.log(`${i} - ${colorParrafos[i].innerHTML}`);
+    }
+    // podemos cambiar todos los datos en una variable con click derecho y change all ocurrencies.
+</script>   
+</body>
+</html>
