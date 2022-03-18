@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <title>Ejemplo de Javascript</title>
+    <style>
+        .azul{
+            color:aqua;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="cabecero" class="azul">EJEMPLO con Javascript</h1>
+    <p>Saludos!</p>
+    <p id="p2" class="azul">Otro parrafo</p>
+ 
+    <script>
+        let parrafos = document.querySelectorAll('h1.azul');
+        console.log(`No. de elementos: ${parrafos.length}`);
+        for(let elemento of parrafos){
+            console.log(`${elemento.innerHTML}`);
+        };
+    </script>
+      <h2 id="titulo1">
+        accediendo a formulario
+    </h2>
+    
+    <form id="formulario"> 
+        Nombre: <input type="text" name="nombre" value="Juan"/>
+        <br/>
+        Apellido: <input type="text" name="apellido" value="Perez"/>
+        <br/>
+    </form>
+    <!--Se muestran que la propiedad onclick llama la funcion mostrar valores-->
+    <button onclick='MostrarValores()'>Mostrar</button>
+    <!--Con el uso del div mostramos dinamicamente el valor que nos devuelve la función-->
+    <div id="valores"></div>
+    <script>
+
+        function MostrarValores(){
+            // accedemos al valos del formulario teniendo en cuenta que este siempre sera de tipo arreglo.
+            let formulario = document.forms['formulario'];
+            // Creamos la variable para ir concatenado los valores a devolver del arreglo
+            let texto = '';
+            for(let elemento of formulario){
+                texto += elemento.value + '<br/>';
+            };
+            // Accedemos al valor del id del div para insertar alli lo que nos devuelve el arreglo modificado con la propiedad innerHTML.
+            document.getElementById('valores').innerHTML = texto;
+            
+            // Acceder al valor de una variable en especifico usando la variable formulario que contiene el arreglo.
+            let nombre = formulario['nombre'];
+            let apellido = formulario['apellido'];
+            // usamos tambien la variable texto para recuperar el valor de cada uno de los elementos anteriormente declarados en estas varibales
+            texto1 = nombre.value + '<br/>' + apellido.value;
+            document.getElementById('valores').innerHTML = texto;
+        };
+    </script>
+</body>
+</html>

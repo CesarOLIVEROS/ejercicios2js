@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="titulo"> Manejo DOM con JS</h1>
+    <button onclick="Mostrar1()">Mostrar</button>
+    <button onclick="Mostrar()">Mostrar1</button>
+    <br/>
+    <script>
+        // Funcion para modificar los datos pero la cual reescribe todos los elementos afectados por el metodo
+        document.write('Saludos desde JS');
+        // funcion para el boton que deseamos programar
+        function Mostrar(){
+            document.write('Adios');
+        }
+    </script>
+
+    <script>
+        // funcion que cambia el titulo y que solo lo cambia en la pagina mas no reescribe el dato actual.
+        function Mostrar1(){
+            document.getElementById('titulo').innerHTML = 'Nuevo Titulo';
+        }
+    </script>
+</body>
+</html>
