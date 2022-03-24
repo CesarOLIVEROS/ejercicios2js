@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos con JS pasando la funcion desde js </title>
+</head>
+<!--Evento de onload es para ejecutar cuando se carga la pagina web-->
+<body onload="entrar()">
+    <h1 id="titulo">Manejo de DOM con Javascript</h1> 
+    <h2 id="titulo1">Titulo cambiante con un click</h2>
+     <br/>
+    <!--nueva seccion con div-->
+    <div id="mostrar"></div>
+    <script>
+        // Accedemos a la informacion y le asignamos una funcion callback la cual no requiere de parentesis.
+        document.getElementById('titulo').onclick =  cambiarTexto;
+        // funcion que nos permitira cambiar el titulo
+        function cambiarTexto(){
+            document.getElementById('titulo').innerHTML = 'Nuevo titulo';
+        }
+        // aca se recupera el evento de click en el titulo para luego enviar la informacion a la funcion callback y mostrarla en el nuevo div.
+        document.getElementById('titulo1').onclick = cambiarTexto1;
+        // Funcion que nos permite mostrar en un nuevo div la informacion que queramos dando click en una nueva funcion.
+        function cambiarTexto1(){
+            document.getElementById('mostrar').innerHTML = 'Titulo cambiante con un click';
+        }
+        // La funcion se carga al entrar en la web por lo mismo hacemos la consulta acerca de si las cookies estan habilitadas o no y las mostramos en el div.
+        function entrar(){
+            alert('Entrando a la pagina web');
+
+            let texto = '';
+            if(navigator.cookieEnabled){
+                texto = 'Cookies estan habilitadas';
+            }
+            else{
+                texto = 'Cookies estan inhabilitadas';
+            }
+            document.getElementById('mostrar').innerHTML = texto;
+        }
+    </script>   
+</body>
+</html>

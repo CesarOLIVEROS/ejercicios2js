@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Evebtis onchange y otros</title>
+</head>
+<body>
+    <h1 id="titulo">Manejo DOM metodos para cambio de colores segun el estado del mouse con JS</h1>
+    <!--manejo de onmouseover-->
+    <h2 id="Subtitulo" onmouseover="rojo(this)" onmouseout="azul(this)">Cambio de color con el mouse encima</h2>
+    <h2 id="Subtitulo1" onmousedown="purple(this)" onmouseup="browm(this)" onclick="Black(this)">Cambio de color con el click oprimido y sin oprimirlo</h2>
+    <br/>
+    <!-- Se crea el objeto con el input y se le da la funcion onchange para pasarle el contexto de accion this como parametro-->
+    Nombre: <input type="text" onchange ="convertir(this)"/>
+    <script>
+        // La funcion que creamos a continuacion recibe todo el objeto de tipo input debido al operador this y ya no se tiene que recuperar el
+        // el elemento con getElementById, asi se trabaja directo sobre el dato existente.
+    function convertir(nombreInput){
+        nombreInput.value = nombreInput.value.toUpperCase();
+    }    
+    </script>
+    <script>
+        // Metodo de onmouseover para cambiar el color cuando el mouse este encima del objeto.
+        function rojo(Subtitulo){
+            Subtitulo.style.color = 'red';
+        }
+        // Metodo para el manejo de onmouseout cuando el mouse no este sobre el objeto este cambiara de color
+        function azul(Subtitulo){
+            Subtitulo.style.color = 'blue';
+        }
+        // funcion que cambiara el color del texto dependiendo si estamos oprimiendo o no el click sobre el texto
+
+        function purple(Subtitulo1){
+            Subtitulo1.style.color = 'purple';        
+        }
+
+        function browm(Subtitulo1){
+            Subtitulo1.style.color = 'red';
+        }
+        // la llamar esta funcion terminaria sin dejar ver la de cambio de color al zsoltar la presion del click sobnre el objeto cambiante.
+        function Black(Subtitulo1){
+            Subtitulo1.style.color = 'black';
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manejo de eventos en DOM con JS</title>
+</head>
+<body>
+    <h1 id="titulo">Manejo de Eventos onfocus y onblur </h1>
+    <br/>
+    Nombre:<input type="text" id="nombre" onfocus="cambiar(this)" onblur="cambiar1(this)"/>
+    <br/>
+    <br/>
+    Apellido:<input type="text" id="apellido" onfocus="cambiar(this)" onblur="cambiar1(this)"/>
+    <br/>
+    <br/>
+    <!-- Ahora modificamos desde JS-->
+    Direccio:<input type="text" id="direccion"/>
+    <br/>
+    <br/>
+    Pais de v:<input type="text" id="pais"/>
+
+    <script>
+        function cambiar(elementoInput){
+            elementoInput.style.background = 'yellow';
+        }
+        // funcion que permite programar para dejar de enfocar el objeto que señalamos con onfocus
+        function cambiar1(elementoInput){
+            elementoInput.style.background = 'pink';
+        }
+
+        // Funcion para cambiar el background desde JS aca con addEventListener no se agrega el on a los metodos solo el nombre
+        // Al igual le pasamos por parametro una funcion de tipo Callback
+        document.getElementById('direccion').addEventListener('focus', cambiar2);
+        document.getElementById('direccion').addEventListener('blur', cambiar3);
+        function cambiar2(evento){
+            // Aca se crea la variable para almacenar el evento y luego se le asigna de donde viene el evento con .target y se le cambia el estilo
+            // sin necesidad de otra linea de codigo    
+            let componente = evento.target.style.background = 'yellow';
+            
+        }
+        function cambiar3(evento){
+            let componente1 = evento.target.style.background = 'pink';
+        }
+
+    // metodo para cambiar el fondo del lugar de residencia
+        document.getElementById('pais').addEventListener('focus', cambiar4);
+        document.getElementById('pais').addEventListener('blur', cambiar5);
+        function cambiar4(evento){
+            let componente2 = evento.target.style.background = 'yellow';
+        }
+
+        function cambiar5(evento){
+            let componente3 = evento.target.style.background = 'pink';
+        }
+
+    </script>
+</body>
+</html>

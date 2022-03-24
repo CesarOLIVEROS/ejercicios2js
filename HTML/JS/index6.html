@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manejo DOM con JS</title>
+    <h1 id="titulo">Manejo de Eventos en un formulario HTML </h1>
+    <br/>
+    
+</head>
+<body>
+    <form id="forma">
+    Nombre:<input type="text" id="nombre" onfocus="cambiar(this)" onblur="cambiar1(this)"/>
+    <br/>
+    <br/>
+    Apellido:<input type="text" id="apellido" onfocus="cambiar(this)" onblur="cambiar1(this)"/>
+    <br/>
+    <br/>
+    <!-- Ahora modificamos desde JS-->
+    Direccio:<input type="text" id="direccion"/>
+    <br/>
+    <br/>
+    Pais de v:<input type="text" id="pais"/>
+
+    <script>
+        // Cuando aplicamos el addEvenListener si queremos que afecte elementos mas internos debemos agregarle otro parametro conocido
+        // como poniendo al final de la funcion flecha el valor de true para que todo el formulario tenga afectacion por la configuracion que ya se dio.
+        // ESTA FUNCIONALIDAD SE DENOMINA DELEGACION DE EVENTO
+        
+        const forma = document.getElementById('forma');
+        // Forma para solo usar una sola vez
+        forma.addEventListener('focus', (evento)=>{
+            evento.target.style.background = 'pink';
+        }, true);
+
+        forma.addEventListener('blur', (evento) =>{
+            evento.target.style.background = '';
+        }, true);
+    </script>
+    </form>
+</body>
+</html>

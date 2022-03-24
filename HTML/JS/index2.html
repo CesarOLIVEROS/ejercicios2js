@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Eventos con JS</title>
 </head>
 <body>
-    <h1 onclick="this.innerHTML='Nuevo Titulo'">Manejo de DOM con Javascript</h1> 
+    <h1 onclick="cambiarTexto(this)">Manejo de DOM con Javascript</h1> 
     <button>Evento con JS</button>
     <br/>
     <script>
-        
+        function cambiarTexto(titulo){
+            titulo.innerHTML = 'Cambiamos el titulo';
+        }
     </script>   
 </body>
 </html>
