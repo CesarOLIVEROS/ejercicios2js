@@ -112,11 +112,43 @@ const crearEgresoHTML =(egreso)=>{
             <div class="elemento_porcentaje">${formatoPorcentaje(egreso.valor/totalEgresos())}</div>
                 <div class="elemento_eliminar">
                 <button class="elemento_eliminar--btn">
-                    <ion-icon name="close-circle-outline"></ion-icon>
+                    <ion-icon name="close-circle-outline"
+                    onclick="eliminarEgreso(${egreso.id})"></ion-icon>
                 </button>
             </div>
         </div>
     </div>
     `;
     return EgresoHTML;
+}
+
+const eliminarEgreso=(id)=>{
+    let indiceEliminar =egresos.findIndex(egreso => egreso.id === id);
+    egresos.splice(indiceEliminar, 1);
+    cargarCabecero();
+    cargarEgresos();
+}
+
+// cuando se intentan recuparar varios elementos de una sola vez se debe traer el valor como un arreglo.
+// si se carga un formulario se debe especificar el forms no el getElementById
+const agregarDato =()=>{
+    let forma = document.forms['forma'];
+    let tipo = forma['tipo'];
+    let descripcion = forma['descripcion'];
+    let valor  = forma['valor'];
+
+    if (descripcion.value != '' && valor.value != ''){
+        if(tipo.value === 'ingreso'){
+            // Number convierte un string a un numero asi Number(valor que convertiremos)
+            // o se puede usar +valor que convertiremos.
+            ingresos.push(new Ingreso(descripcion.value, +valor.value));
+            cargarCabecero();
+            cargarIngresos();
+            
+        }else if(tipo.value === 'egreso'){
+            egresos.push(new Egreso(descripcion.value, +valor.value));
+            cargarCabecero();
+            cargarEgresos();
+        }
+    }
 }
