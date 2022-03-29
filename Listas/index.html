@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listas en HTML</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <!-- Menu de navegacion-->
+
+    <ul>
+        <li><a href="index.html">Inicio</a></li>
+
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="acerca.html">Acerca de</a></li>
+    </ul>
+    <h1>Inicio</h1>
+
+
+    <!-- Hay que tener en cuenta q en html tenemos 3 tipos de listas 
+    listas ordenadas <ol>
+        listas no ordenadas <ul>
+            listas de definicion <dl>-->
+    <h1>Listas No Ordenadas</h1>
+    <!-- para quitar los puntos damos formato con style list-style-type: y la forma que deseamos tener (circle, square...)-->
+    <ul style="list-style-type: square">
+
+        <li>Juan</li>
+        <li>Karla</li>
+        <!-- Lista anidada con el ul dentro de la list item-->
+        <li>Maria
+            <ul>
+                <li>telefono: 2346287</li>
+                <li>cel:348585</li>
+            </ul>
+        </li>
+
+    </ul>
+</body>
+
+</html>
