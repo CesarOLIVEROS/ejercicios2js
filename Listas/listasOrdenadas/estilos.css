@@ -1,0 +1,19 @@
+ol{
+    list-style: none;
+    /* Aca agregamos el contador y lo reseteamos por cada vez que se cree un objeto de tipo order list ol */
+    counter-reset: contador;
+}
+
+/* Aca se incrementa el contador que declaramos abajo y que afectara el listado por cada item creado */
+ol li{
+    counter-increment: contador;
+}
+/* Aca se afecta el listado para agregar antes la palabra Curso y el contador */ 
+ol li::before{
+    content: 'Curso ' counter(contador) ') ';
+    color: #ff6f00;
+}
+
+ol li::after{
+    content: '.';
+}
